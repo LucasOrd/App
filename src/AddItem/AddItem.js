@@ -8,15 +8,11 @@ export default function AddItem(props) {
   return (
     <View style={styles.containerInput}>
       <TextInput
-        placeholder="Ingresar receta"
+        placeholder="Receta a cosultar"
         onChangeText={(text) => setTextInput(text)}
         style={styles.input}
       />
-      <Button
-        title="Buscar"
-        className="btn btn-success"
-        onPress={() => onAdd()}
-      />
+      <Button title="Add" onPress={() => onAdd()} />
     </View>
   );
 }

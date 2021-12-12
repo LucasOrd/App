@@ -24,17 +24,13 @@ export default function ListItem(props) {
               >
                 {data.item.value}
               </Text>
-              <Button
-                onPress={() => onHandlerModal(data.item)}
-                title="Borrar"
-                className="btn btn-primary"
-              />
+              <Button onPress={() => onHandlerModal(data.item)} title="X" />
             </View>
           )}
           keyExtractor={(item) => item.id}
         />
       ) : (
-        <Text> No hay busquedas de recetas </Text>
+        <Text> No hay recetas buscadas </Text>
       )}
     </>
   );

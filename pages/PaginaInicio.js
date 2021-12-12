@@ -1,11 +1,14 @@
+import { Button, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
 
 import AddItem from "../src/AddItem/AddItem";
 import ListItem from "../src/ListItem/ListItem";
 import ModalQuestion from "../src/Modal/Modal";
+import { useNavigation } from "@react-navigation/native";
 
-export const PaginaInicio = (props) => {
+export default function PaginaInicio() {
+  const navigation = useNavigation();
+
   const [list, setList] = useState([]);
 
   const [textInput, setTextInput] = useState("");
@@ -14,19 +17,8 @@ export const PaginaInicio = (props) => {
 
   const [itemSelected, setItemSelected] = useState({});
 
-  const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedReceta, setSelectedReceta] = useState("");
-
-  const handlerInputReceta = (text) => {
-    setEnteredValue(text);
-  };
-
-  const handlerConfirmInput = () => {
-    setConfirmed(true);
-    setSelectedReceta(enteredValue);
-    setEnteredValue("");
-  };
 
   const onAdd = () => {
     setList([
@@ -52,7 +44,7 @@ export const PaginaInicio = (props) => {
   if (confirmed) {
     confirmedOuput = (
       <Button
-        title="buscar receta"
+        title="Buscar receta"
         onPress={() => props.onStartReceta(selectedReceta)}
       />
     );
@@ -60,6 +52,12 @@ export const PaginaInicio = (props) => {
 
   return (
     <View style={styles.screen}>
+      <Button
+        title={"Ver recetas"}
+        onPress={() => {
+          navigation.navigate("Secundaria");
+        }}
+      />
       <ModalQuestion
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
@@ -70,7 +68,7 @@ export const PaginaInicio = (props) => {
       <ListItem list={list} onHandlerModal={onHandlerModal} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   screen: {
