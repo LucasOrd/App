@@ -38,7 +38,7 @@ export default function ListItem(props) {
 
 const styles = StyleSheet.create({
   containerItem: {
-    width: "90%",
+    width: "100%",
     alignSelf: "center",
     justifyContent: "space-between",
     alignItems: "center",

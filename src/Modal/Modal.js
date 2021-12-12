@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   infoContainer: {
-    backgroundColor: "light-blue",
+    backgroundColor: "blue",
     width: "60%",
     height: "25%",
     borderRadius: 10,
