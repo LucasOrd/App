@@ -2,8 +2,10 @@ import { Button, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 
 import AddItem from "../src/AddItem/AddItem";
+import Item from "../src/Item/Item";
 import ListItem from "../src/ListItem/ListItem";
 import ModalQuestion from "../src/Modal/Modal";
+import PaginaSecundaria from "./PaginaSecundaria";
 import { useNavigation } from "@react-navigation/native";
 
 export default function PaginaInicio() {
@@ -44,7 +46,7 @@ export default function PaginaInicio() {
   if (confirmed) {
     confirmedOuput = (
       <Button
-        title="Buscar receta"
+        title="Agregar receta"
         onPress={() => props.onStartReceta(selectedReceta)}
       />
     );
@@ -53,9 +55,9 @@ export default function PaginaInicio() {
   return (
     <View style={styles.screen}>
       <Button
-        title={"Ver recetas"}
+        title={"Ver todas las recetas"}
         onPress={() => {
-          navigation.navigate("Secundaria");
+          navigation.navigate("Detail");
         }}
       />
       <ModalQuestion
