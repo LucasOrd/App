@@ -1,4 +1,4 @@
-import { SIGNUP } from "../actions/AuthReducer";
+import { SIGNUP } from "../Actions/AuthReducer";
 
 const INITIAL_STATE = {
   token: null,
