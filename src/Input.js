@@ -31,7 +31,7 @@ const Input = (props) => {
         onFocus={handlerFocus}
         onBlur={handlerBlur}
       />
-      {error ? <Text>existe un error</Text> : null}
+      {error ? <Text>Error en el mail</Text> : null}
     </View>
   );
 };

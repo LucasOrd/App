@@ -74,7 +74,7 @@ export default function Navigator() {
   function CartStackRender() {
     return (
       <CartStack.Navigator screenOptions={styleHeader}>
-        <CartStack.Screen name={"Cart"} component={CartScreen} />
+        <CartStack.Screen name={"Cart"} component={PaginaSecundaria} />
       </CartStack.Navigator>
     );
   }
@@ -100,7 +100,7 @@ export default function Navigator() {
                     size={24}
                     color={focused ? "green" : "black"}
                   />
-                  <Text>Tienda</Text>
+                  <Text>Home</Text>
                 </View>
               ),
             }}
