@@ -6,7 +6,7 @@ import React from "react";
 import { selectCategory } from "../src/Store/Actions/CategoryActions";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CategoriesScreen() {
+const CategoriesScreen = () => {
   const categories = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -33,7 +33,7 @@ export default function CategoriesScreen() {
       />
     </View>
   );
-}
+};
 
 const style = StyleSheet.create({
   container: {
@@ -42,3 +42,5 @@ const style = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default CategoriesScreen;
