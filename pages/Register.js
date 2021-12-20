@@ -1,18 +1,11 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 
 import Input from "../src/Input";
 import { signup } from "../src/Store/Actions/AuthReducer";
 import { useDispatch } from "react-redux";
 
-export const Register = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -29,10 +22,15 @@ export const Register = () => {
         <Text style={styles.subtitle}>Password</Text>
         <Input value={password} setValue={setPassword} secure />
         <TouchableOpacity style={styles.button} onPress={handlerRegister}>
-          <Text>REGISTRARME</Text>
+          <Text>Registrarme</Text>
         </TouchableOpacity>
-        <Text style={{ marginVertical: 10 }}>YA TIENES UNA CUENTA?</Text>
-        <Button title={"Ingresar"} onPress={() => {}} />
+        <Text style={{ marginVertical: 10 }}>Ingresar como invitado</Text>
+        <Button
+          title={"Ingresar"}
+          onPress={() => {
+            return;
+          }}
+        />
       </View>
     </View>
   );
