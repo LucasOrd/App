@@ -1,16 +1,39 @@
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
+import {
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useReducer, useState } from "react";
+import { login, signup } from "../src/Store/Actions/AuthReducer";
 
 import Input from "../src/Input";
-import { signup } from "../src/Store/Actions/AuthReducer";
+import { formReducer } from "./FormReducer";
 import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const [formState, formDispatch] = useReducer(formReducer, {
+    inputValues: {
+      email: "",
+      password: "",
+    },
+    inputValidities: {
+      email: false,
+      password: false,
+    },
+    formIsValid: false,
+  });
   const handlerRegister = () => {
     dispatch(signup(email, password));
+  };
+
+  const handleLogIn = () => {
+    dispatch(login(email, password));
   };
 
   return (
@@ -24,13 +47,10 @@ const Register = () => {
         <TouchableOpacity style={styles.button} onPress={handlerRegister}>
           <Text>Registrarme</Text>
         </TouchableOpacity>
-        <Text style={{ marginVertical: 10 }}>Ingresar como invitado</Text>
-        <Button
-          title={"Ingresar"}
-          onPress={() => {
-            return;
-          }}
-        />
+        <Text style={{ marginVertical: 10 }}>¿Tenes cuenta?</Text>
+        <TouchableOpacity style={styles.button} onPress={handleLogIn}>
+          <Text>Ingresar</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
