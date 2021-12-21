@@ -1,33 +1,15 @@
-import {
-  Alert,
-  Button,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { login, signup } from "../src/Store/Actions/AuthReducer";
 
 import Input from "../src/Input";
-import { formReducer } from "./FormReducer";
 import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const [formState, formDispatch] = useReducer(formReducer, {
-    inputValues: {
-      email: "",
-      password: "",
-    },
-    inputValidities: {
-      email: false,
-      password: false,
-    },
-    formIsValid: false,
-  });
+
   const handlerRegister = () => {
     dispatch(signup(email, password));
   };

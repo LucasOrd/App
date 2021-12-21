@@ -1,4 +1,4 @@
-import { SIGNUP } from "../Actions/AuthReducer";
+import { LOGIN, SIGNUP } from "../Actions/AuthReducer";
 
 const INITIAL_STATE = {
   token: null,
@@ -10,7 +10,13 @@ const AuthReducer = (state = INITIAL_STATE, action) => {
     case SIGNUP:
       return {
         ...state,
-        token: action.toke,
+        token: action.token,
+        userId: action.userId,
+      };
+    case LOGIN:
+      return {
+        ...state,
+        token: action.token,
         userId: action.userId,
       };
     default:
